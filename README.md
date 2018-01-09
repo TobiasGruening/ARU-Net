@@ -16,8 +16,8 @@ The features are summarized below:
 + Workflow 
     + full training workflow to parametrize and train your own models
     + contains different models, data augmentation strategies, loss functions 
-    + training on specific GPU, this enables the training of several models on a multi GPU system
-    + to train efficiently on GPUs with arbitrarily sized images the "TF_CUDNN_USE_AUTOTUNE" is disabled
+    + training on specific GPU, this enables the training of several models on a multi GPU system in parallel
+    + easy validation for trained model eitehr using classical or ema-shadow weights
 
 Please cite his [[1]](#a-two-stage-method-for-text-line-detection-in-historical-documents) if you find this repo useful and/or use this software for own work.
 
@@ -37,7 +37,8 @@ To run the demo follow:
 python run_demo_inference.py 
 ```
 
-The demo will load a trained model and perform inference for five sample images of the cBad test set CITE.
+The demo will load a trained model and perform inference for five sample images of the cBad test set [[2]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
+[[3]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad).
 The network was trained to predict the position of baselines and separators for the begining and end of each text line.
 After running the python script you should see a matplot window. To go to the next image just close it.
 
