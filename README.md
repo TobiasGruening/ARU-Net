@@ -54,12 +54,14 @@ An example image of the cBad test set [[2]](#read-bad:-a-new-dataset-and-evaluat
 This section describes step-by-step the procedure to train your own model.
 
 ### Train data: 
+The following describes how the training data should look like:
     + The images along with its pixel ground truth have to be in the same folder
     + for each image:  X.jpg, there have to be images named X_GT0.jpg, X_GT1.jpg, X_GT2.jpg, ... (for each channel to be predicted one GT image)
     + each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise
     + generate a list containing row-wise the absolute pathes to the images (just the document images not the GT ones)
 ### Val data:
-    see [train data](#train-data)
+The following describes how the validation data should look like:
+    + see [train data](#train-data)
 ### Train the model:
     + Have a look at the pix_lab/main/train_aru.py script
     + Parametrize it like you wish (have a look at the data_provider, cost and optimizer scripts to see all parameter)
