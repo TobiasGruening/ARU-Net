@@ -100,7 +100,7 @@ year = {2017}
 
 ### A Robust and Binarization-Free Approach for Text Line Detection in Historical Documents
 
-[3] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](10.5281/zenodo.257972)
+[3] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](https://zenodo.org/record/257972)
  
 ```
 @misc{diem_markus_2017_257972,
