@@ -13,7 +13,7 @@ The features are summarized below:
     + training on specific GPU, this enables the training of several models on a multi GPU system
     + to train efficiently on GPUs with arbitrarily sized images the "TF_CUDNN_USE_AUTOTUNE" is disabled
 
-Please cite his [paper](TBD) if you find this useful and/or use this software for own work.
+Please cite his [paper](TBD) if you find this repo useful and/or use this software for own work.
 
 ### Contents
 1. [Installation](#installation)
@@ -47,3 +47,22 @@ An image and the preduced prediction maps are shown below.
 
 ### Train
 This section describes step-by-step the procedure to train your own model.
+
+1. Train data: 
+    + The images along with its pixel ground truth have to be in the same folder
+    + for each image:  X.jpg, there have to be images named X_GT0.jpg, X_GT1.jpg, X_GT2.jpg, ... (for each channel to be predicted one GT image)
+    + each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise
+    + generate a list containing row-wise the absolute pathes to the images (just the document images not the GT ones)
+2. Val data:
+    + see train data
+3. Run the training:
+    + Have a look at the pix_lab/main/train_aru.py script
+    + Parametrize it like you wish (have a look at the data_provider, cost and optimizer scripts to see all parameter)
+    + Setting the correct paths should work fine for a first training
+    + run:
+    ```
+    python -u pix_lab/main/train_aru.py > info.log &
+    ```
+4. Validate the model:
+    + train and val losses are printed in info.log, but this is done just for the classical weights not its ema-shadows
+    + adjust and run: pix_lab/main/validate_ckpt.py to do so
