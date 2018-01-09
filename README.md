@@ -1,1 +1,1 @@
-# A-R-U-Net
+# ARU-Net
