@@ -68,6 +68,7 @@ The following describes how the validation data should look like:
 + see [train data](#train-data)
 
 ### Train the model:
+The following describes how to train a model:
 + Have a look at the pix_lab/main/train_aru.py script
 + Parametrize it like you wish (have a look at the data_provider, cost and optimizer scripts to see all parameter)
 + Setting the correct paths and using the default parametrization should work fine for a first training
@@ -77,12 +78,15 @@ python -u pix_lab/main/train_aru.py > info.log &
 ```
 
 ### Validate the model:
+The following describes how to validate a trained model:
 + train and val losses are printed in info.log
 + to validate the checkpoints using the classical weights as well as its ema-shadows, adjust and run: 
 ```
 pix_lab/main/validate_ckpt.py
 ```
-    
+
+## Comments 
+The 
 
     
 ## References
