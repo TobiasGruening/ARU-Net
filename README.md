@@ -19,7 +19,7 @@ The features are summarized below:
     + training on specific GPU, this enables the training of several models on a multi GPU system
     + to train efficiently on GPUs with arbitrarily sized images the "TF_CUDNN_USE_AUTOTUNE" is disabled
 
-Please cite his [1](#a-two-stage-method-for-text-line-detection-in-historical-documents) if you find this repo useful and/or use this software for own work.
+Please cite his [[1]](#a-two-stage-method-for-text-line-detection-in-historical-documents) if you find this repo useful and/or use this software for own work.
 
 
 ## Installation
@@ -42,7 +42,8 @@ The network was trained to predict the position of baselines and separators for 
 After running the python script you should see a matplot window. To go to the next image just close it.
 
 ### Example
-An example image of the cBad test set [2](#READ-BAD:-A-New-Dataset-and-Evaluation-Scheme-for-Baseline-Detection-in-Archival-Documents), and the preduced prediction maps are shown below.
+An example image of the cBad test set [[2]](#READ-BAD:-A-New-Dataset-and-Evaluation-Scheme-for-Baseline-Detection-in-Archival-Documents), 
+[[3]](#ScriptNet:-ICDAR-2017-Competition-on-Baseline-Detection-in-Archival-Documents-(cBAD)), and the preduced prediction maps are shown below.
 
 ![image_1](demo_images/T_Freyung_005-01_0247.jpg)
 ![image_2](demo_images/pred_ch0.jpg)
@@ -78,15 +79,15 @@ This section describes step-by-step the procedure to train your own model.
     
 ## References
 
-Please cite [1](#a-two-stage-method-for-text-line-detection-in-historical-documents) if using this code.
+Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-documents) if using this code.
 
 ### A Two-Stage Method for Text Line Detection in Historical Documents
 
-[1] 
+[1] TBD
 
 ### READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents
 
-[2] T. Grüning\*, R. Labahn, M. Diem, F. Kleber, S. Fiel, [*READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents*](https://arxiv.org/abs/1705.03311)
+[2] T. Grüning, R. Labahn, M. Diem, F. Kleber, S. Fiel, [*READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents*](https://arxiv.org/abs/1705.03311)
 
 ```
 @article{gruning2017read,
@@ -97,4 +98,16 @@ year = {2017}
 }
 ```
 
+### A Robust and Binarization-Free Approach for Text Line Detection in Historical Documents
+
+[3] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](10.5281/zenodo.257972)
+ 
+```
+@misc{diem_markus_2017_257972,
+author = {Diem, Markus and Kleber, Florian and Fiel, Stefan and Gr{\"{u}}ning, Tobias and Gatos, Basilis},
+doi = {10.5281/zenodo.257972},
+title = {ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)},
+year = {2017}
+}
+```
     
