@@ -86,7 +86,8 @@ pix_lab/main/validate_ckpt.py
 ```
 
 ## Comments 
-The model can be used for each pixel labeling tasks, besides the baseline detection task, it can be easily used for, e.g., binarization, page segmentation, ... purposes.
+If you are interested in some related problem, this could be solved by the proposed system as well.
+The ARU-Net can be used for each pixel labeling task, besides the baseline detection task, it can be easily used for, e.g., binarization, page segmentation, ... purposes.
 
     
 ## References
