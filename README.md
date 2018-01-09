@@ -13,14 +13,12 @@ The features are summarized below:
     + training on specific GPU, this enables the training of several models on a multi GPU system
     + to train efficiently on GPUs with arbitrarily sized images the "TF_CUDNN_USE_AUTOTUNE" is disabled
 
-Please cite his [paper](TBD) if you find this useful.
+Please cite his [paper](TBD) if you find this useful and/or use this software for own work.
 
 ### Contents
 1. [Installation](#installation)
 2. [Demo](#demo)
-3. [Test](#train)
-4. [Train](#test)
-5. [Examples](#examples)
+3. [Train](#train)
 
 ### Installation
 1. Any version of tensorflow version > 1.0 should be ok.
@@ -28,11 +26,11 @@ Please cite his [paper](TBD) if you find this useful.
 3. Clone the Repo
 
 ### Demo
-to run the demo follow:
+To run the demo follow:
 + open a shell
 + make sure Tensorflow is available, e.g., go to docker environment, activate conda, ... 
 + navigate to ....../ARU-Net
-+ run
++ run:
 ```
 python run_demo_inference.py 
 ```
@@ -40,8 +38,12 @@ python run_demo_inference.py
 The demo will load a trained model and perform inference for five sample images of the cBad test set CITE.
 The network was trained to predict the position of baselines and separators for the begining and end of each text line.
 After running the python script you should see a matplot window. To go to the next image just close it.
-An image and the corresponding output maps are shown below.
+An image and the preduced prediction maps are shown below.
 
 ![image_1](demo_images/T_Freyung_005-01_0247.jpg)
 ![image_2](demo_images/pred_ch0.jpg)
 ![image_3](demo_images/pred_ch1.jpg)
+
+
+### Train
+This section describes step-by-step the procedure to train your own model.
