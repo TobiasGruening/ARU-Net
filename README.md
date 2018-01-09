@@ -9,7 +9,7 @@
 ## Introduction 
 This is the Tensorflow code corresponding to [A Two-Stage Method for Text Line Detection in Historical Documents
 ](#a-two-stage-method-for-text-line-detection-in-historical-documents). This repo contains the neural pixel labeling part described in the paper.
-It contains the so-called ARU-Net (among others) which is basically an extended version of the well known U-Net [[2]](U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation). 
+It contains the so-called ARU-Net (among others) which is basically an extended version of the well known U-Net [[2]](u-net-convolutional-networks-for-biomedical-image-segmentation). 
 Besides the model and the basic workflow to train and test models different data augmentation strategies are implemented to reduce the amound of training data needed.
 The repo's features are summarized below:
 + Inference Demo
@@ -96,7 +96,7 @@ Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-docu
 ### U-Net: Convolutional Networks for Biomedical Image Segmentation
 
 [2] O. Ronneberger, P, Fischer, T, Brox, [*U-Net: Convolutional Networks for Biomedical Image Segmentation*](https://arxiv.org/abs/1505.04597)
-
+ ```
 @article{Ronneberger2015,
 arxivId = {1505.04597},
 author = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
@@ -105,7 +105,7 @@ pages = {234--241},
 title = {{U-Net: Convolutional Networks for Biomedical Image Segmentation}},
 year = {2015}
 }
-
+```
 
 ### READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents
 
