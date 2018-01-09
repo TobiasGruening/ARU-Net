@@ -8,8 +8,10 @@
 
 ## Introduction 
 This is the Tensorflow code corresponding to [A Two-Stage Method for Text Line Detection in Historical Documents
-](#a-two-stage-method-for-text-line-detection-in-historical-documents).
-The features are summarized below:
+](#a-two-stage-method-for-text-line-detection-in-historical-documents). This repo contains the neural pixel labeling part described in the paper.
+It contains the so-called ARU-Net (among others) which is basically an extended version of the well known U-Net [[2]](U-Net-Convolutional-Networks-for-Biomedical-Image-Segmentation). 
+Besides the model and the basic workflow to train and test models different data augmentation strategies are implemented to reduce the amound of training data needed.
+The repo's features are summarized below:
 + Inference Demo
     + trained and freezed tensorflow graph included
     + easy to reuse for own inference tests
@@ -37,14 +39,14 @@ To run the demo follow:
 python run_demo_inference.py 
 ```
 
-The demo will load a trained model and perform inference for five sample images of the cBad test set [[2]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
-[[3]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad).
+The demo will load a trained model and perform inference for five sample images of the cBad test set [[3]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
+[[4]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad).
 The network was trained to predict the position of baselines and separators for the begining and end of each text line.
 After running the python script you should see a matplot window. To go to the next image just close it.
 
 ### Example
-An example image of the cBad test set [[2]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
-[[3]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad), and the preduced prediction maps are shown below.
+An example image of the cBad test set [[3]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
+[[4]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad), and the preduced prediction maps are shown below.
 
 ![image_1](demo_images/T_Freyung_005-01_0247.jpg)
 ![image_2](demo_images/pred_ch0.jpg)
@@ -91,9 +93,23 @@ Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-docu
 
 [1] TBD
 
+### U-Net: Convolutional Networks for Biomedical Image Segmentation
+
+[2] O. Ronneberger, P, Fischer, T, Brox, [*U-Net: Convolutional Networks for Biomedical Image Segmentation*](https://arxiv.org/abs/1505.04597)
+
+@article{Ronneberger2015,
+arxivId = {1505.04597},
+author = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
+journal = {Miccai},
+pages = {234--241},
+title = {{U-Net: Convolutional Networks for Biomedical Image Segmentation}},
+year = {2015}
+}
+
+
 ### READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents
 
-[2] T. Grüning, R. Labahn, M. Diem, F. Kleber, S. Fiel, [*READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents*](https://arxiv.org/abs/1705.03311)
+[3] T. Grüning, R. Labahn, M. Diem, F. Kleber, S. Fiel, [*READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents*](https://arxiv.org/abs/1705.03311)
 
 ```
 @article{gruning2017read,
@@ -106,7 +122,7 @@ year = {2017}
 
 ### A Robust and Binarization-Free Approach for Text Line Detection in Historical Documents
 
-[3] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](https://zenodo.org/record/257972)
+[4] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](https://zenodo.org/record/257972)
  
 ```
 @misc{diem_markus_2017_257972,
