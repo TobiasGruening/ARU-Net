@@ -42,7 +42,7 @@ The network was trained to predict the position of baselines and separators for 
 After running the python script you should see a matplot window. To go to the next image just close it.
 
 ### Example
-An example image of the cBad test set [[2]](#READ-BAD:-A-New-Dataset-and-Evaluation-Scheme-for-Baseline-Detection-in-Archival-Documents), 
+An example image of the cBad test set [[2]](#read-bad:-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
 [[3]](#ScriptNet:-ICDAR-2017-Competition-on-Baseline-Detection-in-Archival-Documents-(cBAD)), and the preduced prediction maps are shown below.
 
 ![image_1](demo_images/T_Freyung_005-01_0247.jpg)
