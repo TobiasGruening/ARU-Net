@@ -86,7 +86,7 @@ pix_lab/main/validate_ckpt.py
 ```
 
 ## Comments 
-The 
+The model can be used for each pixel labeling tasks, besides the baseline detection task, it can be easily used for, e.g., binarization, page segmentation, ... purposes.
 
     
 ## References
