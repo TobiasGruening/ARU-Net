@@ -10,31 +10,32 @@
 This is the Tensorflow code corresponding to [A Two-Stage Method for Text Line Detection in Historical Documents
 ](#a-two-stage-method-for-text-line-detection-in-historical-documents). This repo contains the neural pixel labeling part described in the paper.
 It contains the so-called ARU-Net (among others) which is basically an extended version of the well known U-Net [[2]](#u-net-convolutional-networks-for-biomedical-image-segmentation). 
-Besides the model and the basic workflow to train and test models different data augmentation strategies are implemented to reduce the amound of training data needed.
+Besides the model and the basic workflow to train and test models, different data augmentation strategies are implemented to reduce the amound of training data needed.
 The repo's features are summarized below:
 + Inference Demo
-    + trained and freezed tensorflow graph included
-    + easy to reuse for own inference tests
+    + Trained and freezed tensorflow graph included
+    + Easy to reuse for own inference tests
 + Workflow 
-    + full training workflow to parametrize and train your own models
-    + contains different models, data augmentation strategies, loss functions 
-    + training on specific GPU, this enables the training of several models on a multi GPU system in parallel
-    + easy validation for trained model eitehr using classical or ema-shadow weights
+    + Full training workflow to parametrize and train your own models
+    + Contains different models, data augmentation strategies, loss functions 
+    + Training on specific GPU, this enables the training of several models on a multi GPU system in parallel
+    + Easy validation for trained model either using classical or ema-shadow weights
 
-Please cite his [[1]](#a-two-stage-method-for-text-line-detection-in-historical-documents) if you find this repo useful and/or use this software for own work.
+Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-documents) if you find this repo useful and/or use this software for own work.
 
 
 ## Installation
 1. Any version of tensorflow version > 1.0 should be ok.
-2. python packages: matplotlib (>=1.3.1), pillow (>=2.1.0), scipy (>=1.0.0), scikit-image (>=0.13.1), click (>=5.x)
+2. Python packages: matplotlib (>=1.3.1), pillow (>=2.1.0), scipy (>=1.0.0), scikit-image (>=0.13.1), click (>=5.x)
 3. Clone the Repo
+4. Done
 
 ## Demo
 To run the demo follow:
-+ open a shell
-+ make sure Tensorflow is available, e.g., go to docker environment, activate conda, ... 
-+ navigate to ....../ARU-Net
-+ run:
+1. Open a shell
+2. Make sure Tensorflow is available, e.g., go to docker environment, activate conda, ... 
+3. Navigate to the repo folder YOUR_PATH/ARU-Net/
+4. Run:
 ```
 python run_demo_inference.py 
 ```
@@ -45,8 +46,8 @@ The network was trained to predict the position of baselines and separators for 
 After running the python script you should see a matplot window. To go to the next image just close it.
 
 ### Example
-An example image of the cBad test set [[3]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
-[[4]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad), and the preduced prediction maps are shown below.
+The example images are sampled from the cBad test set [[3]](#read-bad-a-new-dataset-and-evaluation-scheme-for-baseline-detection-in-archival-documents), 
+[[4]](#scriptnet-icdar-2017-competition-on-baseline-detection-in-archival-documents-cbad). One image along with its results are shown below.
 
 ![image_1](demo_images/T_Freyung_005-01_0247.jpg)
 ![image_2](demo_images/pred_ch0.jpg)
@@ -59,34 +60,34 @@ This section describes step-by-step the procedure to train your own model.
 ### Train data: 
 The following describes how the training data should look like:
 + The images along with its pixel ground truth have to be in the same folder
-+ for each image:  X.jpg, there have to be images named X_GT0.jpg, X_GT1.jpg, X_GT2.jpg, ... (for each channel to be predicted one GT image)
-+ each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise
-+ generate a list containing row-wise the absolute pathes to the images (just the document images not the GT ones)
++ For each image:  X.jpg, there have to be images named X_GT0.jpg, X_GT1.jpg, X_GT2.jpg, ... (for each channel to be predicted one GT image)
++ Each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise
++ Generate a list containing row-wise the absolute pathes to the images (just the document images not the GT ones)
 
 ### Val data:
 The following describes how the validation data should look like:
-+ see [train data](#train-data)
++ See [train data](#train-data)
 
 ### Train the model:
 The following describes how to train a model:
 + Have a look at the pix_lab/main/train_aru.py script
-+ Parametrize it like you wish (have a look at the data_provider, cost and optimizer scripts to see all parameter)
-+ Setting the correct paths and using the default parametrization should work fine for a first training
-+ run:
++ Parametrize it like you wish (have a look at the data_provider, cost and optimizer scripts to see all parameters)
++ Setting the correct paths, adapting the number of output classes and using the default parametrization should work fine for a first training
++ Run:
 ```
-python -u pix_lab/main/train_aru.py > info.log &
+python -u pix_lab/main/train_aru.py &> info.log 
 ```
 
 ### Validate the model:
 The following describes how to validate a trained model:
-+ train and val losses are printed in info.log
-+ to validate the checkpoints using the classical weights as well as its ema-shadows, adjust and run: 
++ Train and val losses are printed in info.log
++ To validate the checkpoints using the classical weights as well as its ema-shadows, adapt and run: 
 ```
 pix_lab/main/validate_ckpt.py
 ```
 
 ## Comments 
-If you are interested in some related problem, this could be solved by the proposed system as well.
+If you are interested in a related problem, this repo could maybe help you as well.
 The ARU-Net can be used for each pixel labeling task, besides the baseline detection task, it can be easily used for, e.g., binarization, page segmentation, ... purposes.
 
     
