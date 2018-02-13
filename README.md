@@ -97,7 +97,17 @@ Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-docu
 
 ### A Two-Stage Method for Text Line Detection in Historical Documents
 
-[1] TBD
+[1] T. Grüning, G. Leifert, T. Strauß, R. Labahn, [*A Two-Stage Method for Text Line Detection in Historical Documents*](https://arxiv.org/abs/1802.03345)
+
+```
+@article{Gruning2018,
+arxivId = {1802.03345},
+author = {Gr{\"{u}}ning, Tobias and Leifert, Gundram and Strau{\ss}, Tobias and Labahn, Roger},
+title = {{A Two-Stage Method for Text Line Detection in Historical Documents}},
+url = {http://arxiv.org/abs/1802.03345},
+year = {2018}
+}
+```
 
 ### U-Net: Convolutional Networks for Biomedical Image Segmentation
 
@@ -118,10 +128,11 @@ year = {2015}
 [3] T. Grüning, R. Labahn, M. Diem, F. Kleber, S. Fiel, [*READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents*](https://arxiv.org/abs/1705.03311)
 
 ```
-@article{gruning2017read,
+@article{Gruning2017,
+arxivId = {1705.03311},
 author = {Gr{\"{u}}ning, Tobias and Labahn, Roger and Diem, Markus and Kleber, Florian and Fiel, Stefan},
-journal = {arXiv preprint arXiv:1705.03311},
 title = {{READ-BAD: A New Dataset and Evaluation Scheme for Baseline Detection in Archival Documents}},
+url = {http://arxiv.org/abs/1705.03311},
 year = {2017}
 }
 ```
@@ -131,7 +142,7 @@ year = {2017}
 [4] M. Diem, F. Kleber, S. Fiel, T. Grüning, B. Gatos, [*ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)*](https://zenodo.org/record/257972)
  
 ```
-@misc{diem_markus_2017_257972,
+@misc{Diem2017,
 author = {Diem, Markus and Kleber, Florian and Fiel, Stefan and Gr{\"{u}}ning, Tobias and Gatos, Basilis},
 doi = {10.5281/zenodo.257972},
 title = {ScriptNet: ICDAR 2017 Competition on Baseline Detection in Archival Documents (cBAD)},
