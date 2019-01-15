@@ -61,7 +61,7 @@ This section describes step-by-step the procedure to train your own model.
 The following describes how the training data should look like:
 + The images along with its pixel ground truth have to be in the same folder
 + For each image:  X.jpg, there have to be images named X_GT0.jpg, X_GT1.jpg, X_GT2.jpg, ... (for each channel to be predicted one GT image)
-+ Each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise
++ Each ground truth image is binary and contains ones at positions where the corresponding class is present and zeros otherwise (see demo_images/demo_traindata for a sample)
 + Generate a list containing row-wise the absolute pathes to the images (just the document images not the GT ones)
 
 ### Val data:
