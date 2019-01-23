@@ -44,7 +44,8 @@ class Data_provider_la(object):
         self.scale_max = kwargs_dat.get("scale_max", 1.0)
         self.scale_val = kwargs_dat.get("scale_val", 1.0)
         self.one_hot_encoding = kwargs_dat.get("one_hot_encoding", True)
-        self.dominating_channel = kwargs_dat.get("dominating_channel", 1)
+        self.dominating_channel = kwargs_dat.get("dominating_channel", 0)
+        self.dominating_channel = min(self.dominating_channel, n_classes-1)
         self.shuffle = kwargs_dat.get("shuffle", True)
 
         self.threadNum = threadNum
@@ -124,16 +125,20 @@ class Data_provider_la(object):
                         for c in range(0,aImg.shape[2]):
                             maps.append(aImg[:,:,c])
                             imgChannels += 1
-
                     filename, file_extension = os.path.splitext(path)
 
-                    for aC in range(0,tgtChannels):
+                    # In the one hot encoding scenario don not load the clutter class GT
+                    to_load = tgtChannels
+                    if self.one_hot_encoding:
+                        to_load = tgtChannels-1
+
+                    for aC in range(0,to_load):
                         pathTR = filename + '_GT'+str(aC)+file_extension
-                        aTgtCH = misc.imread(pathTR)
+                        aTgtCH = misc.imread(pathTR, 'L')
                         maps.append(aTgtCH)
 
                     resizedMaps = []
-                    for c in range(0, imgChannels+tgtChannels):
+                    for c in range(0, imgChannels+to_load):
                         resizedMaps.append(np.expand_dims(misc.imresize(maps[c], aScale, interp='bicubic'),2))
                     res = np.dstack(resizedMaps)
 
@@ -157,7 +162,6 @@ class Data_provider_la(object):
                     aTgt = res[:, :, imgChannels:]
 
                     aTgt = np.where(aTgt > 64, 1.0, 0.0)
-
                     if self.skelet:
                         for c in range(0,tgtChannels-1):
                             tTgt = skeletonize(aTgt[:,:,c])
@@ -174,9 +178,10 @@ class Data_provider_la(object):
                                 tMap = np.logical_and(aTgt[:, :, aM], np.logical_not(aMap))
                                 aMap = np.logical_or(aMap, tMap)
                                 aTgt[:, :, aM] = tMap
+                        # Add+Calculate the clutter map
+                        aTgt = np.pad(aTgt, ((0,0),(0,0),(0,1)), mode='constant')
                         aTgt[:, :, tgtChannels - 1] = np.logical_not(aMap)
                     aImg = aImg / 255.0
-
                     imgs.append(aImg)
                     width = aImg.shape[1]
                     heigth = aImg.shape[0]
