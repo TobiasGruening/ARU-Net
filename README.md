@@ -25,10 +25,11 @@ Please cite [[1]](#a-two-stage-method-for-text-line-detection-in-historical-docu
 
 
 ## Installation
-1. Any version of tensorflow version > 1.0 should be ok.
-2. Python packages: matplotlib (>=1.3.1), pillow (>=2.1.0), scipy (>=1.0.0), scikit-image (>=0.13.1), click (>=5.x)
-3. Clone the Repo
-4. Done
+1. Use python 2.7
+2. Any version of tensorflow version > 1.0 should be ok.
+3. Python packages: matplotlib (>=1.3.1), pillow (>=2.1.0), scipy (>=1.0.0), scikit-image (>=0.13.1), click (>=5.x)
+4. Clone the Repo
+5. Done
 
 ## Demo
 To run the demo follow:
