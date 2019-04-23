@@ -46,7 +46,7 @@ def detCNN(input, useResidual, useLSTM, channels, scale_space_num, res_depth, fe
     actFeatNum = featRoot
     dw_h_convs = OrderedDict()
     for layer in range(0, scale_space_num):
-        with tf.variable_scope('unet_down_' + `layer`) as scope:
+        with tf.variable_scope('unet_down_' + str(layer)) as scope:
             if useResidual:
                 x = layers.conv2d_bn_lrn_drop('conv1', unetInp, [filter_size, filter_size, lastFeatNum, actFeatNum],
                                               activation=tf.identity)
@@ -54,10 +54,10 @@ def detCNN(input, useResidual, useLSTM, channels, scale_space_num, res_depth, fe
                 x = tf.nn.relu(x, name='activation')
                 for aRes in range(0,res_depth):
                     if aRes < res_depth-1:
-                        x = layers.conv2d_bn_lrn_drop('convR_' + `aRes`, x, [filter_size, filter_size, actFeatNum,
+                        x = layers.conv2d_bn_lrn_drop('convR_' + str(aRes), x, [filter_size, filter_size, actFeatNum,
                                     actFeatNum], activation=activation)
                     else:
-                        x = layers.conv2d_bn_lrn_drop('convR_' + `aRes`, x, [filter_size, filter_size, actFeatNum,
+                        x = layers.conv2d_bn_lrn_drop('convR_' + str(aRes), x, [filter_size, filter_size, actFeatNum,
                                     actFeatNum], activation=tf.identity)
                 x += orig_x
                 x = activation(x, name='activation')
@@ -78,7 +78,7 @@ def detCNN(input, useResidual, useLSTM, channels, scale_space_num, res_depth, fe
         # Run separable 2D LSTM
         unetInp = layers.separable_rnn(unetInp, lastFeatNum, scope="RNN2D", cellType='LSTM')
     for layer in range(scale_space_num - 2, -1, -1):
-        with tf.variable_scope('unet_up_' + `layer`) as scope:
+        with tf.variable_scope('unet_up_' + str(layer)) as scope:
             # Upsampling followed by two ConvLayers
             dw_h_conv = dw_h_convs[layer]
             out_shape = tf.shape(dw_h_conv)
@@ -92,10 +92,10 @@ def detCNN(input, useResidual, useLSTM, channels, scale_space_num, res_depth, fe
                 x = tf.nn.relu(x, name='activation')
                 for aRes in range(0,res_depth):
                     if aRes < res_depth-1:
-                        x = layers.conv2d_bn_lrn_drop('convR_' + `aRes`, x, [filter_size, filter_size, actFeatNum,
+                        x = layers.conv2d_bn_lrn_drop('convR_' + str(aRes), x, [filter_size, filter_size, actFeatNum,
                                     actFeatNum], activation=activation)
                     else:
-                        x = layers.conv2d_bn_lrn_drop('convR_' + `aRes`, x, [filter_size, filter_size, actFeatNum,
+                        x = layers.conv2d_bn_lrn_drop('convR_' + str(aRes), x, [filter_size, filter_size, actFeatNum,
                                     actFeatNum], activation=tf.identity)
                 x += orig_x
                 unetInp = activation(x, name='activation')
