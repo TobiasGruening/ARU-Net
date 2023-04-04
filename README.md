@@ -1,5 +1,7 @@
 # ARU-Net: A Neural Pixel Labeler for Layout Analysis of Historical Documents
 
+This repo is no longer maintained!
+
 ## Contents
 * [Introduction](#introduction)
 * [Installation](#installation)
